@@ -1,4 +1,8 @@
 ---
+- name: ensure docker daemon setup
+  hosts: all
+  become: yes
+
 - tasks:
   - name: ensure docker is installed
     apt:
