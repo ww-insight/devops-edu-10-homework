@@ -1,5 +1,6 @@
 FROM tomcat
+ARG GIT_REPO
 RUN apt update && apt install maven -y
-RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-RUN mvn package -f boxfuse-sample-java-war-hello/
-RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps
+RUN git clone $GIT_REPO
+RUN mvn package -f $GIT_REPO/
+RUN cp $GIT_REPO/target/*.war /usr/local/tomcat/webapps
