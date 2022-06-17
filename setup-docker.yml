@@ -14,7 +14,7 @@
       path: /lib/systemd/system/docker.service
       regexp: 'ExecStart=(.*)'
       line: ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
-      notify: restart docker
+    notify: restart docker
 
   handlers:
   - name: restart docker
