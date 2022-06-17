@@ -16,7 +16,7 @@
       line: ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
       notify: restart docker
 
-- handlers:
+  handlers:
   - name: restart docker
     systemd:
       name: docker
