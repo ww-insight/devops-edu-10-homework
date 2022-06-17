@@ -1,0 +1,18 @@
+---
+- tasks:
+  - name: ensure docker is installed
+    apt:
+      name: docker.io
+      state: present
+
+  - name: ensure line ExecStart in docker.service exists
+    lineinfile:
+      path: /lib/systemd/system/docker.service
+      line: ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
+
+  - name: restart docker
+    systemd:
+      name: docker
+      state: restarted
+      daemon_reload: yes
+
