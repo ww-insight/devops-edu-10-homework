@@ -12,7 +12,7 @@
   - name: ensure line ExecStart in docker.service exists
     lineinfile:
       path: /lib/systemd/system/docker.service
-      regexp: 'ExecStart='
+      regexp: 'ExecStart=(.*)'
       line: ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
 
   - name: restart docker
