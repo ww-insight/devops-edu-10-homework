@@ -3,7 +3,7 @@
   hosts: all
   become: yes
 
-- tasks:
+  tasks:
   - name: ensure docker is installed
     apt:
       name: docker.io
